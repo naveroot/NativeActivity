@@ -1,0 +1,11 @@
+div class='col-3'
+  div class='card'
+    = image_tag activity.photo, height: 100, width: 318, class: 'card-img-top' unless activity.photo.nil?
+    div class='card-body'
+      h4 class='card-title'
+        = truncate(activity.title, length: 30)
+      h6 class="card-subtitle mb-2 text-muted text-right"
+        = activity.price.to_s + ' руб.'
+      p class='card-text'
+        = truncate(activity.description, length: 60)
+      = link_to 'Подробнее', activity_path(activity.id), class: 'btn btn-primary'
